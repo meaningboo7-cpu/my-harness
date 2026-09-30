@@ -1,0 +1,13 @@
+{
+  "screen_id": "my-assets",
+  "current_stage": "S3",
+  "blocked": null,
+  "gates": {
+    "G1": { "status": "passed", "attempts": 0, "last_failures": [] },
+    "G2": { "status": "passed", "attempts": 0, "last_failures": [] },
+    "G3": { "status": "pending", "attempts": 0, "last_failures": [] },
+    "G4": { "status": "pending", "attempts": 0, "last_failures": [] },
+    "G5": { "status": "pending", "attempts": 0, "last_failures": [] }
+  },
+  "human_approval": { "status": "approved", "date": "2026-09-30", "reason": "" }
+}
