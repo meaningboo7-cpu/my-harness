@@ -191,7 +191,8 @@ const checks = {
     for (const [rel, t] of existing([F.keys, F.comps, F.design])) {
       lines(t).forEach((l, i) => {
         for (const m of l.matchAll(/box-shadow\s*:\s*([^;\n]+)/gi)) {
-          if (m[1].trim().toLowerCase() !== 'none' && !l.includes(a.exception_component)) f.push(`${rel}:${i + 1} box-shadow: ${m[1].trim()}`);
+          // 'none'으로 시작하면 허용 ('box-shadow: none. 설명 문장'처럼 뒤에 글이 이어져도 값은 none)
+          if (!/^none(?![\w-])/i.test(m[1].trim()) && !l.includes(a.exception_component)) f.push(`${rel}:${i + 1} box-shadow: ${m[1].trim()}`);
         }
       });
     }

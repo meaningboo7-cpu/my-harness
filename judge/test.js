@@ -86,6 +86,16 @@ for (const [name, gate, rule, mutate] of cases) {
   ok('G3: 기계 조건도 실패하면 waiting_human=false', r2.json.waiting_human === false);
 }
 {
+  // 오탐 방지: 'box-shadow: none' 뒤에 설명 문장이 이어져도 위반이 아니다
+  const root = fresh();
+  edit(root, '04-design/screen-design.md', t => t + '\n- 카드 목록: box-shadow: none. 판매 신청 항목을 선택한 상태.\n');
+  const r = judge(root, 'G5');
+  ok('G5: "box-shadow: none. 설명"은 위반이 아님 (오탐 방지)', r.code === 0 && r.json.pass, r.json && JSON.stringify(r.json.failures));
+  const root2 = fresh();
+  edit(root2, '04-design/screen-design.md', t => t + '\n- 카드: box-shadow: nonesuch 0 4px 8px\n');
+  ok('G5: "nonesuch" 같은 값은 여전히 위반', judge(root2, 'G5').json.failures.some(f => f.rule === 'D-05'));
+}
+{
   const r = judge(fresh(), 'G9');
   ok('알 수 없는 게이트는 종료 코드 2', r.code === 2);
 }
