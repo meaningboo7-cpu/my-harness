@@ -1,0 +1,37 @@
+{
+  "screen_id": "skill-library",
+  "current_stage": "done",
+  "blocked": null,
+  "gates": {
+    "G1": {
+      "status": "passed",
+      "attempts": 0,
+      "last_failures": []
+    },
+    "G2": {
+      "status": "passed",
+      "attempts": 0,
+      "last_failures": []
+    },
+    "G3": {
+      "status": "passed",
+      "attempts": 0,
+      "last_failures": []
+    },
+    "G4": {
+      "status": "passed",
+      "attempts": 0,
+      "last_failures": []
+    },
+    "G5": {
+      "status": "passed",
+      "attempts": 0,
+      "last_failures": []
+    }
+  },
+  "human_approval": {
+    "status": "approved",
+    "date": "2026-10-03",
+    "reason": ""
+  }
+}
